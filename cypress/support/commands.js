@@ -23,3 +23,49 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("getRequest", (path) => {
+  return cy.request({
+    method: "GET",
+    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    headers: {
+      "user-key": Cypress.config("userKey"),
+    },
+    // failOnStatusCode: false
+  });
+});
+
+Cypress.Commands.add("postRequest", (path, body) => {
+  return cy.request({
+    method: "POST",
+    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    headers: {
+      "user-key": Cypress.config("userKey"),
+    },
+    body: body,
+    // failOnStatusCode: false,
+  });
+});
+
+Cypress.Commands.add("patchRequest", (path, body) => {
+  return cy.request({
+    method: "PATCH",
+    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    headers: {
+      "user-key": Cypress.config("userKey"),
+    },
+    body: body,
+    // failOnStatusCode: false,
+  });
+});
+
+Cypress.Commands.add("deleteRequest", (path, body) => {
+  return cy.request({
+    method: "DELETE",
+    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    headers: {
+      "user-key": Cypress.config("userKey"),
+    },
+    // failOnStatusCode: false,
+  });
+});
