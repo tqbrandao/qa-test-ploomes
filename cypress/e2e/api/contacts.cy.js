@@ -1,33 +1,38 @@
 import userData from "../../fixtures/userData.json";
 
-describe("Should test Ploomes API", () => {
-  it.skip("Criar usuario", () => {
+describe("Should test Ploomes's API", () => {
+  it("Should create an user", () => {
     cy.postRequest("/Contacts", userData).then((res) => {
-      cy.log(res);
-      console.log(res);
+      Cypress.config("userId", res.body.value[0].Id);
+      expect(res.status).to.equal(200);
+      expect(res.body.value[0]).to.have.property("Id");
+      expect(res.body.value[0].Name).not.to.be.empty;
     });
   });
 
-  it("Get clientes", () => {
+  it("Should get all users", () => {
     cy.getRequest("/Contacts").then((res) => {
-      cy.log(res);
+      expect(res.status).to.equal(200);
+      expect(res.body.value).length.to.be.gte(1);
+      Cypress.config("usersLength", res.body.value.length);
       console.log(res.body);
     });
   });
 
-  it("Patch usuario", () => {
-    cy.patchRequest("/Contacts(400538400)", { Name: "Magribas" }).then(
-      (res) => {
-        console.log("Usuario modificado", res.body);
-      }
-    );
+  it("Should patch an user by it's ID", () => {
+    cy.patchRequest(`/Contacts(${Cypress.config("userId")})`, {
+      Name: "Pessoa atualizada",
+    }).then((res) => {
+      expect(res.status).to.equal(200);
+      expect(res.body.value[0].Name).to.equal("Pessoa atualizada");
+    });
   });
 
-  it.skip("Delete usuario", () => {
-    cy.deleteRequest("/Contacts(400538365)", { Name: "Magribas" }).then(
-      (res) => {
-        console.log("Usuario modificado", res.body);
-      }
-    );
+  it("Should delete an user by it's ID", () => {
+    cy.deleteRequest(`/Contacts(${Cypress.config("userId")})`).then((res) => {
+      expect(res.status).to.equal(200);
+
+      // O metodo delete da API nao retorna um body, nao sendo possivel fazer assertivas com o mesmo
+    });
   });
 });
