@@ -27,7 +27,7 @@
 Cypress.Commands.add("getRequest", (path) => {
   return cy.request({
     method: "GET",
-    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    url: path, // baseUrl is prepend to URL
     headers: {
       "user-key": Cypress.config("userKey"),
     },
@@ -38,7 +38,7 @@ Cypress.Commands.add("getRequest", (path) => {
 Cypress.Commands.add("postRequest", (path, body) => {
   return cy.request({
     method: "POST",
-    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    url: path, // baseUrl is prepend to URL
     headers: {
       "user-key": Cypress.config("userKey"),
     },
@@ -50,7 +50,7 @@ Cypress.Commands.add("postRequest", (path, body) => {
 Cypress.Commands.add("patchRequest", (path, body) => {
   return cy.request({
     method: "PATCH",
-    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    url: path, // baseUrl is prepend to URL
     headers: {
       "user-key": Cypress.config("userKey"),
     },
@@ -62,7 +62,7 @@ Cypress.Commands.add("patchRequest", (path, body) => {
 Cypress.Commands.add("deleteRequest", (path, body) => {
   return cy.request({
     method: "DELETE",
-    url: `${Cypress.config("baseUrlAPI")}${path}`, // baseUrl is prepend to URL
+    url: path, // baseUrl is prepend to URL
     headers: {
       "user-key": Cypress.config("userKey"),
     },

@@ -15,7 +15,6 @@ describe("Should test Ploomes's API contacts section", () => {
       expect(res.status).to.equal(200);
       expect(res.body.value).length.to.be.gte(1);
       Cypress.config("usersLength", res.body.value.length);
-      console.log(res.body);
     });
   });
 
