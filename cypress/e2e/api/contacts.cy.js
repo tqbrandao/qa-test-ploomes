@@ -31,8 +31,7 @@ describe("Should test Ploomes's API contacts section", () => {
   it("Should delete an user by it's ID", () => {
     cy.deleteRequest(`/Contacts(${Cypress.config("userId")})`).then((res) => {
       expect(res.status).to.equal(200);
-
-      // O metodo delete da API nao retorna um body, nao sendo possivel fazer assertivas com o mesmo
+      expect(res.body).to.be.empty;
     });
   });
 });
