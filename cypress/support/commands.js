@@ -78,3 +78,5 @@ Cypress.Commands.add("login", (email, password) => {
   cy.get("#centerRender").click();
   cy.wait(15000);
 });
+
+// Test comment
