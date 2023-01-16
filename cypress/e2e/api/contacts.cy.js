@@ -1,8 +1,8 @@
-import userData from "../../fixtures/userData.json";
+import contactData from "../../fixtures/contactData.json";
 
-describe("Should test Ploomes's API", () => {
+describe("Should test Ploomes's API contacts section", () => {
   it("Should create an user", () => {
-    cy.postRequest("/Contacts", userData).then((res) => {
+    cy.postRequest("/Contacts", contactData).then((res) => {
       Cypress.config("userId", res.body.value[0].Id);
       expect(res.status).to.equal(200);
       expect(res.body.value[0]).to.have.property("Id");

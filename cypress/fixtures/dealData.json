@@ -1,0 +1,16 @@
+{
+    "Title": "Novo Negócio",
+    "ContactId": 0,
+    "Amount": 20,
+    "StageId": 0,
+    "OtherProperties": [
+        {
+            "FieldKey": "{fieldKey}",
+            "StringValue": "texto exemplo"
+        },
+        {
+            "FieldKey": "{fieldKey}",
+            "IntegerValue": 2
+        }
+    ]
+}
