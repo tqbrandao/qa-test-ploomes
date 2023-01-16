@@ -1,25 +1,28 @@
 import contactData from "../../fixtures/contactData.json";
 
 describe("Should test Ploomes's API contacts section", () => {
-  it("Should create an user", () => {
+  before(() => {
+    // Hook para inserção de massa de dados, permitindo que cada teste possa ser executado individualmente.
+    cy.createContact(contactData);
+  });
+
+  it("Should create an contact", () => {
     cy.postRequest("/Contacts", contactData).then((res) => {
-      Cypress.config("userId", res.body.value[0].Id);
       expect(res.status).to.equal(200);
       expect(res.body.value[0]).to.have.property("Id");
       expect(res.body.value[0].Name).not.to.be.empty;
     });
   });
 
-  it("Should get all users", () => {
+  it("Should get all contacts", () => {
     cy.getRequest("/Contacts").then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body.value).length.to.be.gte(1);
-      Cypress.config("usersLength", res.body.value.length);
     });
   });
 
-  it("Should patch an user by it's ID", () => {
-    cy.patchRequest(`/Contacts(${Cypress.config("userId")})`, {
+  it("Should patch a contact by it's ID", () => {
+    cy.patchRequest(`/Contacts(${Cypress.config("contactId")})`, {
       Name: "Pessoa atualizada",
     }).then((res) => {
       expect(res.status).to.equal(200);
@@ -27,10 +30,12 @@ describe("Should test Ploomes's API contacts section", () => {
     });
   });
 
-  it("Should delete an user by it's ID", () => {
-    cy.deleteRequest(`/Contacts(${Cypress.config("userId")})`).then((res) => {
-      expect(res.status).to.equal(200);
-      expect(res.body).to.be.empty;
-    });
+  it("Should delete a contact by it's ID", () => {
+    cy.deleteRequest(`/Contacts(${Cypress.config("contactId")})`).then(
+      (res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body).to.be.empty;
+      }
+    );
   });
 });

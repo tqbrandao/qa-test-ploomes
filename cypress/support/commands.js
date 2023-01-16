@@ -79,4 +79,14 @@ Cypress.Commands.add("login", (email, password) => {
   cy.wait(15000);
 });
 
-// Test comment
+Cypress.Commands.add("createContact", (contactData) => {
+  cy.postRequest("/Contacts", contactData).then((res) => {
+    Cypress.config("contactId", res.body.value[0].Id);
+  });
+});
+
+Cypress.Commands.add("createDeal", (dealData) => {
+  cy.postRequest("/Deals", dealData).then((res) => {
+    Cypress.config("dealId", res.body.value[0].Id);
+  });
+});

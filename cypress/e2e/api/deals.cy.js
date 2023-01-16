@@ -1,9 +1,13 @@
 import dealData from "../../fixtures/dealData.json";
 
 describe("Should test Ploomes's API deals section", () => {
+  before(() => {
+    // Hook para inserção de massa de dados, permitindo que cada teste possa ser executado individualmente.
+    cy.createDeal(dealData);
+  });
+
   it("Should create a deal", () => {
     cy.postRequest("/Deals", dealData).then((res) => {
-      Cypress.config("dealId", res.body.value[0].Id); // Checar como está escrita a Deal ID
       expect(res.status).to.equal(200);
       expect(res.body.value[0]).to.have.property("Id");
       expect(res.body.value[0].Title).not.to.be.empty;
@@ -14,7 +18,6 @@ describe("Should test Ploomes's API deals section", () => {
     cy.getRequest("/Deals").then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body.value).length.to.be.gte(1);
-      Cypress.config("dealsLength", res.body.value.length);
     });
   });
 
