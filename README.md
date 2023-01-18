@@ -39,4 +39,12 @@ Cypress
   - CRUD em Negócios
   - CRUD em Produtos
 
-## Limitações e próximos passos
+## Limitações
+
+- A maioria dos elementos HTML não possuem seletores específicos para testes (por exemplo: "data-test", "data-testid" ou "data-cy"), dificultando a seleção de elementos e tornando-a menos robusta e confiável.
+- No geral, o login na plataforma gerava muitas mensagens de erro no console, afetando o desempenho dos testes em termos de velocidade.
+
+## Próximos passos para a evolução do sistema
+
+- Criar seletores específicos para testes nos elementos HTML da página, o que tornaria os cenários de testes mais confiáveis e evitaria erros.
+- Refinar as respostas e status codes da API (algumas respostas são genéricas e dificultam a identificação do problema).

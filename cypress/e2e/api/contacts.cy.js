@@ -6,7 +6,7 @@ describe("Should test Ploomes's API contacts section", () => {
     cy.createContact(contactData);
   });
 
-  it.only("Should create an contact", () => {
+  it("Should create an contact", () => {
     cy.postRequest("/Contacts", contactData).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body.value[0]).to.have.property("Id");
