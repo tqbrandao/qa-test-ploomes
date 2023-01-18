@@ -6,10 +6,10 @@
   "OriginId": 0,
   "CompanyId": null,
   "StreetAddressNumber": "XXX",
-  "TypeId": 0,
+  "TypeId": 2,
   "Phones": [
     {
-      "PhoneNumber": "(XX) XXXX-XXXX",
+      "PhoneNumber": "(12) 1234-5678",
       "TypeId": 0,
       "CountryId": 0
     }

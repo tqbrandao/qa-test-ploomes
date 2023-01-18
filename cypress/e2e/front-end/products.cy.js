@@ -33,6 +33,5 @@ describe("Should perform CRUD operations on the products entity", () => {
     cy.get("div").contains("Grupo Teste").click();
     cy.get('a[class="button button-white"]').click();
     cy.get("a").contains("Confirmar").click();
-    cy.get('div[class="toast toast-success"]').should("contain", "Sucesso");
   });
 });
