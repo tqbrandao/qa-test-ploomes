@@ -20,6 +20,8 @@ Para rodar os testes em modo 'headless', execute:
 npm run test
 ```
 
+Após a finalização dos testes, você pode acessar os vídeos de todos os specs de front-end em Cypress/Videos 📼
+
 ## Implementação
 
 ### 👨‍💻 Framework
