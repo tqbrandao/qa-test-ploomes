@@ -89,3 +89,13 @@ Cypress.Commands.add("login", (email, password) => {
   cy.get("#centerRender").click();
   cy.get('[class="side-wrapper"]', { timeout: 15000 });
 });
+
+// Cypress.Commands.add("login", (email, password) => {
+//   cy.session([email, password], () => {
+//     cy.visit(Cypress.config("baseUrlFront"));
+//     cy.get('input[id="email"]').type(email);
+//     cy.get('input[id="password"]').type(password);
+//     cy.get("#centerRender").click();
+//     cy.get('[class="side-wrapper"]', { timeout: 15000 });
+//   });
+// });

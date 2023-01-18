@@ -13,5 +13,6 @@ module.exports = defineConfig({
     dealId: null,
     email: "thalyssonteste@teste.com",
     password: "teste123",
+    // cookie: "",
   },
 });
