@@ -8,12 +8,6 @@ describe("Should perform CRUD operations on the clients entity", () => {
     cy.get("a").contains("Novo cliente").click();
     cy.get("a").contains("Pessoa").click();
     cy.get('input[name="contact_name"]').type("Pessoa Nova");
-    // cy.get('input[id="select-fk-contactcompany-13"]')
-    //   .type("Empresa Teste")
-    //   .wait(2000);
-    // cy.get('div[class="full-width nowrap ellipsis"]').click();
-    // cy.get('button[class="button button-action mleft15"]').click();
-    // cy.get('div[class="toast-message"]').should("contain", "Sucesso");
     cy.get("button").contains("Salvar").click({ force: true });
   });
 
