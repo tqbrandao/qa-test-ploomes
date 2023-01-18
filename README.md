@@ -17,7 +17,7 @@ npm run cy:open
 Para rodar os testes em modo 'headless', execute:
 
 ```bash
-npm run cy:open
+npm run test
 ```
 
 ## Implementação
