@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "dependencies": {
     "cypress": "^12.3.0"
