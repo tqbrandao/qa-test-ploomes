@@ -1,10 +1,6 @@
-describe("Should perform CRUD operations on the clients entity", () => {
+describe("Should perform CRUD operations on the deals entity", () => {
   beforeEach(() => {
     cy.login(Cypress.config("email"), Cypress.config("password"));
-
-    // Lembrar de colocar o script pra criar uma nova pessoa automaticamente
-
-    // POSSIBILIDADE! TIRAR A PARTE QUE ADICIONA EMPRESA PRA EVITAR BUG DEPOIS
   });
 
   it("Should create a deal", () => {
